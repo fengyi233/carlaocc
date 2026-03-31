@@ -1,0 +1,19 @@
+defaults:
+  - dataset: default
+  - occ: default
+  - _self_
+
+# Source occupancy configuration (derived from occ defaults)
+source:
+  voxel_size: ${voxel_size}
+  voxel_origin: ${occ_bbox.min}
+  save_dir_name: vs_0_1
+
+# Target occupancy configuration (override via CLI)
+target:
+  voxel_size: 0.2
+  voxel_origin: [0, -25.6, -2.4]
+  volume_size: [256, 256, 32]
+  save_dir_name: vs_0_2_forward_view
+
+use_sem_prior: true

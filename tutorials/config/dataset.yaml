@@ -1,0 +1,16 @@
+data_root: "data/CarlaOccV1_mini/"
+dataset_type: "val"
+
+# Dataset type selection
+loading_type: "surrounding"  # Load all 6 cameras
+
+load_rgb: true
+load_depth: true
+load_semantic: true
+load_lidar: true
+load_semantic_lidar: true
+load_traffic_info: true
+load_pano_occ: true
+
+occ_config:
+  type: "vs_0_4_surround_view"

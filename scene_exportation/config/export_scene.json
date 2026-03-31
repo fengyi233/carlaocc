@@ -1,0 +1,62 @@
+{
+  "export_dir": "/mnt/newdisk/datasets/carla_datasets/CarlaOccV1/SceneMeshes",
+  "skip_existing": true,
+  "show_progress": true,
+  "target_actors": [],
+  "invalid_actors": [
+    "SM_Beach1760_2",
+    "SM_seaM_52",
+    "Road_Road_Town03_1"
+  ],
+  "invalid_actor_classes": [
+    "DecalActor",
+    "GroupActor",
+    "Emitter",
+    "RoutePlanner",
+    "VehicleSpawnPoint",
+    "WalkerSpawnPoint",
+    "PlayerStart",
+    "SphereReflectionCapture"
+  ],
+  "export_options": {
+    "export_background": true,
+    "export_foreground": true
+  },
+  "fbx_options": {
+    "export_morph_targets": false,
+    "export_preview_mesh": false,
+    "level_of_detail": false,
+    "collision": false,
+    "vertex_color": false,
+    "ascii": false
+  },
+  "foreground_vehicles": {
+    "Car": {
+      "vehicle.taxi.ford": "/Game/Carla/Blueprints/Vehicles/FordCrown01/BP_FordCrown01",
+      "vehicle.nissan.patrol": "/Game/Carla/Blueprints/Vehicles/NissanPatrol/BP_NissanPatrol",
+      "vehicle.dodgecop.charger": "/Game/Carla/Blueprints/Vehicles/DodgeChargerCop/BP_DodgeChargerCop",
+      "vehicle.dodge.charger": "/Game/Carla/Blueprints/Vehicles/DodgeCharger/BP_DodgeCharger",
+      "vehicle.lincoln.mkz": "/Game/Carla/Blueprints/Vehicles/LincolnMKZ/BP_LincolnMKZ",
+      "vehicle.mini.cooper": "/Game/Carla/Blueprints/Vehicles/MiniCooper/BP_MiniCooper",
+      "vehicle.ue4.chevrolet.impala": "/Game/Carla/Blueprints/Vehicles/ChevroletImpala/BP_ChevroletImpala",
+      "vehicle.ue4.mercedes.ccc": "/Game/Carla/Blueprints/Vehicles/MercedesCCC/BP_MercedesCCC",
+      "vehicle.ue4.ford.mustang": "/Game/Carla/Blueprints/Vehicles/Mustang/BP_Mustang",
+      "vehicle.ue4.bmw.grantourer": "/Game/Carla/Blueprints/Vehicles/BmwGrandTourer/BP_BmwGrandTourer",
+      "vehicle.ue4.ford.crown": "/Game/Carla/Blueprints/Vehicles/FordCrown02/BP_FordCrown02",
+      "vehicle.ue4.audi.tt": "/Game/Carla/Blueprints/Vehicles/AudiTT/BP_AudiTT"
+    },
+    "Truck": {
+      "vehicle.carlacola.actors": "/Game/Carla/Blueprints/Vehicles/CarlaCola/BP_CarlaCola",
+      "vehicle.firetruck.actors": "/Game/Carla/Blueprints/Vehicles/ActrosFiretruck/BP_ActrosFiretruck",
+      "vehicle.ambulance.ford": "/Game/Carla/Blueprints/Vehicles/Ambulance/BP_Ambulance",
+      "vehicle.sprinter.mercedes": "/Game/Carla/Blueprints/Vehicles/MercedesSprinter/BP_MercedesSprinter"
+    },
+    "Bus": {
+      "vehicle.fuso.mitsubishi": "/Game/Carla/Blueprints/Vehicles/MitsubishiFusoRosa/BP_MitsubishiFusoRosa"
+    }
+  },
+  "foreground_pedestrians": {
+    "animation_path": "/Game/Carla/Animations/GEN3/",
+    "fps": 30
+  }
+}

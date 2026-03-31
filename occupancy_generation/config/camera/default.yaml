@@ -1,0 +1,10 @@
+# @package _global_
+# Camera intrinsics (shared by all cameras)
+image_width: 1408
+image_height: 376
+intrinsic_matrix: [
+  [ 552.554261, 0, 704.0 ],
+  [ 0, 552.554261, 188.0 ],
+  [ 0, 0, 1 ]
+]
+

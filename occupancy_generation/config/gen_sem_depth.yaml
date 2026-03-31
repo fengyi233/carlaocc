@@ -1,0 +1,17 @@
+defaults:
+  - dataset: default
+  - occ: default
+  - ped: default
+  - camera: default
+  - _self_
+
+# Classes whose semantics/depth need correction via mesh ray casting
+sem_depth_correction:
+  carla_class:
+    - "BP_BusStop_C"
+    - "BP_StreetLight02_C"
+    - "BP_Lamppost_tall12"
+  semantic_class:
+    - "Car"
+    - "Truck"
+    - "Bus"

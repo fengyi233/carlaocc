@@ -1,0 +1,9 @@
+# @package _global_
+# Pedestrian gait configuration
+pedestrian_gait:
+  num_frames: 25
+  speed_threshold: 0.05
+  total_frames: 1000
+  database_frames: 36
+  target_bones: [ "crl_leg__L", "crl_leg__R" ]
+  ped_dir: "Pedestrians/standard_walking"

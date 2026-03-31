@@ -1,0 +1,84 @@
+collected_type: &collected_type
+  - rgb
+  - semantic_segmentation
+  - depth
+
+sensor_config:
+  camera_00:
+    type: *collected_type
+    fov: 103.744808
+    image_size_x: 1408
+    image_size_y: 376
+    transform:
+      location: {x: 0.8, y: -0.3, z: 1.55}
+      rotation: {roll: 0.0, pitch: 0.0, yaw: 0.0}
+
+  camera_01:
+    type: *collected_type
+    fov: 103.744808
+    image_size_x: 1408
+    image_size_y: 376
+    transform:
+      location: {x: 0.8, y: 0.3, z: 1.55}
+      rotation: {roll: 0.0, pitch: 0.0, yaw: 0.0}
+
+  camera_02:
+    type: *collected_type
+    fov: 103.744808
+    image_size_x: 1408
+    image_size_y: 376
+    transform:
+      location: {x: -0.0, y: -0.46, z: 1.55}
+      rotation: {roll: 0.0, pitch: 0.0, yaw: -90.0}
+
+  camera_03:
+    type: *collected_type
+    fov: 103.744808
+    image_size_x: 1408
+    image_size_y: 376
+    transform:
+      location: {x: 0.0, y: 0.46, z: 1.55}
+      rotation: {roll: 0.0, pitch: 0.0, yaw: 90.0}
+
+  camera_04:
+    type: *collected_type
+    fov: 103.744808
+    image_size_x: 1408
+    image_size_y: 376
+    transform:
+      location: {x: -0.8, y: -0.3, z: 1.55}
+      rotation: {roll: 0.0, pitch: 0.0, yaw: 180.0}
+
+  camera_05:
+    type: *collected_type
+    fov: 103.744808
+    image_size_x: 1408
+    image_size_y: 376
+    transform:
+      location: {x: -0.8, y: 0.3, z: 1.55}
+      rotation: {roll: 0.0, pitch: 0.0, yaw: 180.0}
+
+  camera_bev:
+    type:
+      - rgb
+    fov: 120.0
+    image_size_x: 512
+    image_size_y: 512
+    transform:
+      location: {x: 0.0, y: 0.0, z: 20.0}
+      rotation: {roll: 0.0, pitch: -90.0, yaw: 0.0}
+
+  lidar:
+    type:
+      - ray_cast
+      - ray_cast_semantic
+    channels: 32
+    range: 80.0
+    points_per_second: 250000
+    rotation_frequency: 20.0
+    upper_fov: 10.0
+    lower_fov: -30.0
+    transform:
+      location: {x: 0.0, y: 0.0, z: 1.73}
+      rotation: {roll: 0.0, pitch: 0.0, yaw: 0.0}
+

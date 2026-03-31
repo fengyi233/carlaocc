@@ -1,0 +1,15 @@
+loading_type: "surrounding"  # Options: mono, stereo, kitti360-like, surrounding
+
+# Data loading switches
+load_rgb: true
+load_depth: true
+load_semantic: true
+load_semantic_lidar: true
+load_lidar: true
+load_traffic_info: false
+load_pano_occ: false
+
+# Dataset paths
+data_root: "/home/data_WD_2/CarlaOccV1_mini/CarlaOccV1_mini/"
+
+dataset_type: "val"  # Options: [train, val, test]

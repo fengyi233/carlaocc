@@ -1,0 +1,19 @@
+defaults:
+  - dataset: default
+  - _self_
+
+# Occupancy sub-directory name under each sequence's occupancy folder
+occ_dir_name: "vs_0_4_surround_view"
+
+# Save directory for visualization results
+save_dir: "/mnt/newdisk/datasets/carla_datasets/CarlaOccV1/visualizations/occ/${occ_dir_name}"
+
+# Voxel origin for visualization offset (world coordinates)
+voxel_origin: [ -25.6, -25.6, -2.4 ]
+
+# Camera configuration for Open3D rendering
+camera:
+  image_size: [ 800, 600 ]
+  focal_length: 500.0
+  cam_position: [ 0.0, 0.0, 50.0 ]  # 50m above and look downward (bev)
+  cam_pitch: 90.0

@@ -1,0 +1,16 @@
+# @package _global_
+# Dataset and processing scope
+dataset_dir: "/mnt/newdisk/datasets/carla_datasets/CarlaOccV1"
+
+town_names:
+  - "Town01_Opt"
+  - "Town02_Opt"
+  - "Town03_Opt"
+  - "Town04_Opt"
+  - "Town05_Opt"
+  - "Town06_Opt"
+  - "Town07_Opt"
+  - "Town10HD_Opt"
+
+sequences: ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+frame_range: [ 0, 999 ]

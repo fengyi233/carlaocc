@@ -1,0 +1,10 @@
+defaults:
+  - dataset: default
+  - camera: default
+  - _self_
+
+# Point cloud type: 'semantic_lidar' or 'lidar'
+pc_type: "semantic_lidar"
+
+# Save directory for visualization results
+save_dir: "outputs/vis_${pc_type}"

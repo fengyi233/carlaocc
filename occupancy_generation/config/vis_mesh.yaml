@@ -1,0 +1,21 @@
+defaults:
+  - dataset: default
+  - occ: default
+  - ped: default
+  - _self_
+
+# Mesh type for visualization
+mesh_type: "panoptic" # 'semantic' or 'panoptic'
+
+# Whether to visualize bounding box
+vis_bbox: true
+
+# Save directory for visualization results
+save_dir: "/mnt/newdisk/datasets/carla_datasets/CarlaOccV1/visualizations/mesh/"
+
+# Camera configuration for Open3D rendering
+vis:
+  image_size: [ 800, 600 ]
+  focal_length: 500.0
+  cam_position: [ -25.6, 0.0, 30.0 ]
+  cam_pitch: 45.0

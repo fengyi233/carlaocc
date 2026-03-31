@@ -1,0 +1,17 @@
+loading_type: "mono"  # Options: mono, stereo, kitti360-like, surrounding
+
+# Data loading switches
+load_rgb: true
+load_depth: false
+load_semantic: false
+load_lidar: false
+load_traffic_info: true
+load_pano_occ: false
+
+# Dataset paths
+data_root: "/home/data_WD_2/CarlaOccV1_mini/CarlaOccV1_mini/"
+#sequence: "Town01_Opt_Seq07"
+#sequence: "Town05_Opt_Seq07"
+sequence: "Town01_Opt_Seq07"
+
+dataset_type: "val"  # Options: [train, val, test]

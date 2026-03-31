@@ -1,0 +1,48 @@
+output_dir: D:/datasets/carla_datasets/CarlaOccV1
+fps: 10
+frames: 1000
+
+maps_to_collect:
+  - Town01_Opt
+  - Town02_Opt
+  - Town03_Opt
+  - Town04_Opt
+  - Town05_Opt
+  - Town06_Opt
+  - Town07_Opt
+  - Town10HD_Opt
+
+seqs_to_collect:
+  - id: 0
+    traffic_level: no_traffic
+  - id: 1
+    traffic_level: low_traffic
+  - id: 2
+    traffic_level: low_traffic
+  - id: 3
+    traffic_level: low_traffic
+  - id: 4
+    traffic_level: medium_traffic
+  - id: 5
+    traffic_level: medium_traffic
+  - id: 6
+    traffic_level: medium_traffic
+  - id: 7
+    traffic_level: high_traffic
+  - id: 8
+    traffic_level: high_traffic
+  - id: 9
+    traffic_level: high_traffic
+  - id: 10
+    traffic_level: high_traffic
+  - id: 11
+    traffic_level: high_traffic
+  - id: 12
+    traffic_level: high_traffic
+
+traffic_light_config:
+  stop_speed: 0.5
+  max_wait_frames: 20
+  green_time: 5.0
+  yellow_time: 1.0
+  red_time: 0.0

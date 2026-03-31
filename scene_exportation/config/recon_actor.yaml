@@ -1,0 +1,84 @@
+# Scene Reconstruction Configuration
+
+# Export directory
+export_dir: "/mnt/newdisk/datasets/carla_datasets/CarlaOccV1/SceneMeshes"
+
+# Towns to process with their specific voxelization regions
+towns:
+  Town01_Opt:
+    region:
+      min: [ -50.0, -350.0, -20.0 ]   # [x_min, y_min, z_min]
+      max: [ 450.0, 60.0, 100.0 ]     # [x_max, y_max, z_max]
+  
+  Town02_Opt:
+    region:
+      min: [ -50.0, -350.0, -20.0 ]
+      max: [ 250.0, 60.0, 100.0 ]
+  
+  Town03_Opt:
+    region:
+      min: [ -250.0, -250.0, -20.0 ]
+      max: [ 300.0, 250.0, 100.0 ]
+  
+  Town04_Opt:
+    region:
+      min: [ -550.0, -450.0, -20.0 ]
+      max: [ 450.0, 450.0, 100.0 ]
+  
+  Town05_Opt:
+    region:
+      min: [ -300.0, -300.0, -20.0 ]
+      max: [ 300.0, 300.0, 100.0 ]
+  
+  Town06_Opt:
+    region:
+      min: [ -450.0, -500.0, -20.0 ]
+      max: [ 750.0, 200.0, 100.0 ]
+  
+  Town07_Opt:
+    region:
+      min: [ -250.0, -180.0, -20.0 ]
+      max: [ 150.0, 300.0, 100.0 ]
+  
+  Town10HD_Opt:
+    region:
+      min: [ -150.0, -170.0, -20.0 ]
+      max: [ 150.0, 100.0, 100.0 ]
+
+# Town selection (list of towns to process)
+# Comment out towns you don't want to process
+town_names:
+  - "Town01_Opt"
+  - "Town02_Opt"
+  - "Town03_Opt"
+  - "Town04_Opt"
+  - "Town05_Opt"
+  - "Town06_Opt"
+  - "Town07_Opt"
+  - "Town10HD_Opt"
+
+# Voxelization configuration
+voxelization:
+  #  enabled: false
+  enabled: true
+
+  # Background voxelization
+  bg_voxel_size: 0.05  # meters, for background actors (landscape, buildings, etc.)
+  
+  # Foreground voxelization
+  fg_voxel_size: 0.05  # meters, for foreground actors (vehicles, pedestrians)
+
+# Large actor splitting configuration
+# Actors with both X and Y extents exceeding grid_size will be split into smaller chunks
+large_actor_split:
+  grid_size: 50.0  # meters, for grid-based splitting (XY plane)
+
+# Processing options
+processing:
+  reconstruct_fg_actors: true
+  reconstruct_bg_actors: true
+  reconstruct_whole_scene: true
+
+mesh_simplification:
+  enabled: true
+  target_triangles: 100000    # Maximum number of triangles after simplification

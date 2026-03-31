@@ -1,0 +1,60 @@
+common:
+  tm_port: 8000
+
+  ignore_lights_percentage: 0.0
+  ignore_signs_percentage: 0.0
+  ignore_vehicles_percentage: 0.0
+  ignore_walkers_percentage: 0.0
+
+  ego_vehicle:
+    name: vehicle.taxi.ford
+    vehicle_percentage_speed_difference: 0.0
+
+  seed: 42
+  seqs_per_map: 13
+  no_truck_maps:  # To avoid carla internal bugs
+    - Town01_Opt
+    - Town02_Opt
+    - Town07_Opt
+    - Town10HD_Opt
+  excluded_vehicles:  # To avoid carla internal bugs
+    - vehicle.nissan.patrol
+
+  # Total road length for each map (in kilometers)
+  map_road_lengths:
+    Town01_Opt: 4.22
+    Town02_Opt: 2.00
+    Town03_Opt: 8
+    Town04_Opt: 10.82
+    Town05_Opt: 9.24
+    Town06_Opt: 8.48
+    Town07_Opt: 5.37
+    Town10HD_Opt: 3.35
+  max_vehicle_spawn_num: 128
+  max_walker_spawn_num: 64
+
+levels:
+  no_traffic:
+    vehicle_num: 0
+    walker_num: 0
+    global_distance_to_leading_vehicle: 3.0
+    global_percentage_speed_difference: 30.0
+
+  low_traffic:
+    vehicle_num: 4   # Spawned vehicles per kilometer
+    walker_num: 2     # Spawned walkers per kilometer
+    global_distance_to_leading_vehicle: 3.0
+    global_percentage_speed_difference: 30.0
+
+  medium_traffic:
+    vehicle_num: 8   # Spawned vehicles per kilometer
+    walker_num: 4    # Spawned walkers per kilometer
+    global_distance_to_leading_vehicle: 2.5
+    global_percentage_speed_difference: 35.0
+
+  high_traffic:
+    vehicle_num: 16   # Spawned vehicles per kilometer
+    walker_num: 8    # Spawned walkers per kilometer
+    global_distance_to_leading_vehicle: 2.0
+    global_percentage_speed_difference: 40.0
+
