@@ -27,7 +27,7 @@ Sensor configuration
 
 A detailed figure of the sensor configuration is shown below:
 
-.. figure:: ../_static/sensor_cfg.png
+.. figure:: _static/sensor_cfg.png
    :width: 100%
    :align: center
    :alt: Sensor configuration diagram

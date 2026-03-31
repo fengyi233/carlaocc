@@ -1,11 +1,11 @@
-.. image:: ../_static/carlaocc.png
+.. image:: _static/carlaocc.png
    :alt: CarlaOcc Logo
    :align: center
    :width: 60%
    :target: https://github.com/fengyi233/CarlaOcc
 
 Welcome to CarlaOcc Dataset Documentation!
-====================================================
+==========================================
 
 .. raw:: html
 
@@ -29,6 +29,9 @@ Welcome to CarlaOcc Dataset Documentation!
    <a href="https://github.com/fengyi233/CarlaOcc" style="text-decoration:none;">
       <strong><img src="https://img.icons8.com/material-outlined/48/github.png" alt="GitHub" width="20" height="20" style="vertical-align:middle; margin-right:4px;"/>GitHub</strong>
    </a>
+   </p>
+   <p align="center">
+     <img src="_static/town10.gif" style="max-width: 100%; height: auto;" alt="CarlaOcc demo" />
    </p>
    <br/>
 

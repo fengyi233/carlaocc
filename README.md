@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/_static/carlaocc.png" alt="CarlaOcc Logo" width="60%">
+  <img src="docs/source/_static/carlaocc.png" alt="CarlaOcc Logo" width="60%">
 </p>
 
 <h2 align="left"><b>An Instance-Centric Panoptic Occupancy Prediction Benchmark for Autonomous Driving</b></h2>
@@ -28,7 +28,7 @@
 </p>
 
 <p align="center">
-  <video src="docs/_static/town10.mp4" autoplay loop muted playsinline width="100%"></video>
+  <img src="docs/source/_static/town10.gif" width="100%" />
 </p>
 
 
