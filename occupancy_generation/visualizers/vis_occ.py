@@ -25,6 +25,9 @@ def main(cfg: DictConfig) -> None:
 
     sequences = cfg.sequences
     frame_range = cfg.frame_range
+    vis_interval = int(cfg.get("vis_interval", 1))
+    if vis_interval < 1:
+        raise ValueError(f"vis_interval must be >= 1, got {vis_interval}")
     print("=" * 60)
     print("Visualizing occupancy ground truth...")
     print(f"Dataset directory  : {dataset_dir}")
@@ -32,6 +35,7 @@ def main(cfg: DictConfig) -> None:
     print(f"Save directory     : {save_dir}")
     print(f"Voxel origin       : {voxel_origin}")
     print(f"Frame range        : {frame_range if frame_range is not None else 'all'}")
+    print(f"Vis interval       : every {vis_interval} frame(s)")
     print("=" * 60)
 
     for town_name in cfg.town_names:
@@ -44,6 +48,8 @@ def main(cfg: DictConfig) -> None:
             if frame_range is not None:
                 start, end = frame_range
                 occ_paths = occ_paths[start:end + 1]
+            if vis_interval > 1:
+                occ_paths = occ_paths[::vis_interval]
             for occ_path in tqdm(
                     occ_paths,
                     desc=f'[{sequence_name}] Visualization',

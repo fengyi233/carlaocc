@@ -13,6 +13,9 @@ def main(cfg: DictConfig) -> None:
     mesh_type = cfg.mesh_type
     save_dir = Path(cfg.save_dir)
     bbox_enabled = cfg.get("vis_bbox", True)
+    vis_interval = int(cfg.get("vis_interval", 1))
+    if vis_interval < 1:
+        raise ValueError(f"vis_interval must be >= 1, got {vis_interval}")
 
     camera_setting = CameraSetting.from_config(
         CameraSettingConfig(
@@ -23,6 +26,8 @@ def main(cfg: DictConfig) -> None:
         )
     ) if cfg.get("vis") else None
 
+    print(f"Frame range  : [{cfg.frame_range[0]}, {cfg.frame_range[1]}]")
+    print(f"Vis interval : every {vis_interval} frame(s)")
     for town_name in cfg.town_names:
         for sequence in cfg.sequences:
             print(f"\nVisualizing {mesh_type} mesh: {town_name} Seq{sequence}")
@@ -32,8 +37,10 @@ def main(cfg: DictConfig) -> None:
             seq_save_dir = save_dir / mesh_type / f"{town_name}_Seq{sequence}"
             seq_save_dir.mkdir(parents=True, exist_ok=True)
 
-            for i in tqdm(range(cfg.frame_range[0], cfg.frame_range[1] + 1),
-                          desc=f"{town_name}_Seq{sequence}"):
+            for i in tqdm(
+                    range(cfg.frame_range[0], cfg.frame_range[1] + 1, vis_interval),
+                    desc=f"{town_name}_Seq{sequence}",
+            ):
                 save_path = str(seq_save_dir / f"{i:04d}.png")
                 if mesh_type == "semantic":
                     mesh = mesh_generator.generate_sem_mesh(i)

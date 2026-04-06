@@ -13,6 +13,9 @@ vis_bbox: true
 # Save directory for visualization results
 save_dir: "/mnt/newdisk/datasets/carla_datasets/CarlaOccV1/visualizations/mesh/"
 
+# Visualize one frame every N frames (within frame_range). 1 = every frame.
+vis_interval: 1
+
 # Camera configuration for Open3D rendering
 vis:
   image_size: [ 800, 600 ]

@@ -34,12 +34,13 @@
 
 ## News
 
-- 2026-03-31: Code and Dataset released!
+- 2026-04-03: Full **CarlaOccV1** is available on [Hugging Face](https://huggingface.co/datasets/fengyi233/CarlaOcc) (multi-modal archives; download and unpack as below).
+- 2026-03-31: Code and mini dataset (**CarlaOccV1_mini**) released!
 - 2026-02-23: Paper accepted by CVPR 2026!
 
 ## TODO
 - [ ] Release training and evaluation code
-- [ ] Release full dataset (CarlaOccV1)
+- [x] Release full dataset (CarlaOccV1) — on [Hugging Face](https://huggingface.co/datasets/fengyi233/CarlaOcc)
 - [x] Release mini dataset (CarlaOccV1_mini)
 - [x] Release dataset tutorial and visualization tools
 - [x] Release data collection, scene exportation, & occupancy generation pipeline
@@ -60,6 +61,34 @@
   pip install -r requirements.txt
   pip install <carla_wheel>.whl   # matching your CARLA build
   ```
+
+
+## Download Dataset
+
+**CarlaOccV1** (full) and **CarlaOccV1_mini** are hosted on [Hugging Face](https://huggingface.co/datasets/fengyi233/CarlaOcc). A [Baiduyun Disk](https://pan.baidu.com/s/1dfEJnxCHXKpTx2DbpX2nXQ?pwd=92pj) mirror is also listed in the [Dataset Tutorial](https://carlaocc.readthedocs.io/en/latest/dataset_tutorial.html).
+
+**Mini set** (~3 GB, tutorial / quick visualization):
+
+```bash
+hf download fengyi233/CarlaOcc --include "CarlaOccV1_mini/*" --repo-type=dataset --local-dir .
+```
+
+**Full CarlaOccV1**:
+
+```bash
+hf download fengyi233/CarlaOcc --repo-type=dataset --local-dir .
+```
+
+Use `--include` / `--exclude` to fetch only some modalities (e.g. `CarlaOccV1/all_rgb/*`); see the [Dataset Tutorial](https://carlaocc.readthedocs.io/en/latest/dataset_tutorial.html).
+
+After downloading, restore the on-disk tree:
+
+```bash
+# Extract under ./CarlaOccV1 (skip if you only use CarlaOccV1_mini and did not download archives)
+bash scripts/unzip_dataset.sh CarlaOccV1
+```
+
+You can also use `bash scripts/unzip_dataset.sh <download_dir> [output_dir]`; see `scripts/unzip_dataset.sh`.
 
 
 ## Pipeline Overview
@@ -162,7 +191,7 @@ python occupancy_generation/visualizers/vis_occ.py
 
 ## Documentation
 
-Full documentation is available on [Read the Docs](https://carlaocc.readthedocs.io/en/latest/).
+Full documentation is on [Read the Docs](https://carlaocc.readthedocs.io/en/latest/), including the [Dataset Tutorial](https://carlaocc.readthedocs.io/en/latest/dataset_tutorial.html) (download, layout, Baiduyun link).
 
 
 ## Citation

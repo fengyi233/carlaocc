@@ -1,7 +1,7 @@
 #!/bin/bash
 # Visualize all modalities for the occupancy dataset.
 # Usage: bash occupancy_generation/vis_modalities.sh [hydra overrides...]
-#   e.g. bash occupancy_generation/vis_modalities.sh town_names='["Town05_Opt"]' frame_range='[0,9]'
+#   e.g. bash occupancy_generation/vis_modalities.sh town_names='["Town05_Opt"]' frame_range='[0,9]' vis_interval=5
 
 set -e
 
