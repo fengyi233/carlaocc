@@ -24,6 +24,14 @@ from utils.labels import name2label, sem_z_order
 from utils.mesh_ops import voxelize_mesh
 from utils.occ_ops import occ_dense2sparse_fast
 
+TOWN04_TERRAIN_CLEANUP_TOWN = "Town04_Opt"
+TOWN04_TERRAIN_CLEANUP_BASE_SEM_IDS = (
+    name2label['Road'].id,
+    name2label['Sidewalk'].id,
+    name2label['RoadLine'].id,
+)
+TERRAIN_SEM_ID = name2label['Terrain'].id
+
 
 class PreprocessedPanoOccGenerator(BaseMeshGenerator):
     """
@@ -347,6 +355,46 @@ class PreprocessedPanoOccGenerator(BaseMeshGenerator):
         )
         return lidar_voxel_coords[valid_mask]
 
+    def remove_town04_terrain_above_flat_surfaces(self, pano_occ_sparse: np.ndarray) -> np.ndarray:
+        """Remove Town04 terrain voxels that sit above road-like flat surfaces."""
+        if self.town_name != TOWN04_TERRAIN_CLEANUP_TOWN or pano_occ_sparse.size == 0:
+            return pano_occ_sparse
+
+        sem_ids = pano_occ_sparse[:, 3] // 1000
+        base_mask = np.isin(sem_ids, TOWN04_TERRAIN_CLEANUP_BASE_SEM_IDS)
+        terrain_mask = sem_ids == TERRAIN_SEM_ID
+        if not np.any(base_mask) or not np.any(terrain_mask):
+            return pano_occ_sparse
+
+        x = pano_occ_sparse[:, 0].astype(np.int32, copy=False)
+        y = pano_occ_sparse[:, 1].astype(np.int32, copy=False)
+        z = pano_occ_sparse[:, 2].astype(np.int16, copy=False)
+        xy_key = x * int(self.volume_size[1]) + y
+
+        base_key = xy_key[base_mask]
+        base_z = z[base_mask]
+        order = np.argsort(base_key, kind='mergesort')
+        base_key_sorted = base_key[order]
+        base_z_sorted = base_z[order]
+        unique_base_key, start_indices = np.unique(base_key_sorted, return_index=True)
+        min_base_z = np.minimum.reduceat(base_z_sorted, start_indices)
+
+        terrain_indices = np.flatnonzero(terrain_mask)
+        terrain_key = xy_key[terrain_indices]
+        search_indices = np.searchsorted(unique_base_key, terrain_key)
+
+        valid = search_indices < unique_base_key.size
+        has_base_column = np.zeros(terrain_indices.shape[0], dtype=bool)
+        if np.any(valid):
+            has_base_column[valid] = unique_base_key[search_indices[valid]] == terrain_key[valid]
+
+        remove = np.zeros(pano_occ_sparse.shape[0], dtype=bool)
+        if np.any(has_base_column):
+            candidate_indices = terrain_indices[has_base_column]
+            remove[candidate_indices] = z[candidate_indices] > min_base_z[search_indices[has_base_column]]
+
+        return pano_occ_sparse[~remove]
+
     def generate_pano_occupancy(self, frame_id: int) -> np.ndarray:
         """Generate panoptic occupancy for a single frame using preprocessed data.
 
@@ -516,6 +564,7 @@ class PreprocessedPanoOccGenerator(BaseMeshGenerator):
 
         # Convert dense grid to sparse Nx4 format (x, y, z, combined_id)
         pano_occ_sparse = occ_dense2sparse_fast(pano_occ_dense).astype(np.uint16)
+        pano_occ_sparse = self.remove_town04_terrain_above_flat_surfaces(pano_occ_sparse)
         return pano_occ_sparse
 
 
