@@ -34,12 +34,13 @@
 
 ## News
 
+- 2026-10-21: Check out our new work **[PanoBench](https://mias.group/PanoBench/)**! Building on CarlaOcc, PanoBench unifies CarlaOcc, nuScenes and KITTI-360 into three complementary subsets for semantic occupancy prediction, panoptic occupancy prediction and 4D occupancy forecasting. See the [paper](https://arxiv.org/abs/2610.23537), [code](https://github.com/fengyi233/PanoBench) and [dataset](https://huggingface.co/datasets/fengyi233/PanoBench/tree/main/panobench).
 - 2026-04-03: Full **CarlaOccV1** is available on [Hugging Face](https://huggingface.co/datasets/fengyi233/CarlaOcc) (multi-modal archives; download and unpack as below).
 - 2026-03-31: Code and mini dataset (**CarlaOccV1_mini**) released!
 - 2026-02-23: Paper accepted by CVPR 2026!
 
 ## TODO
-- [ ] Release training and evaluation code
+- [x] Release training and evaluation code (See [PanoBench](https://mias.group/PanoBench/))
 - [x] Release full dataset (CarlaOccV1) — on [Hugging Face](https://huggingface.co/datasets/fengyi233/CarlaOcc)
 - [x] Release mini dataset (CarlaOccV1_mini)
 - [x] Release dataset tutorial and visualization tools
